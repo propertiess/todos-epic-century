@@ -8,6 +8,7 @@ import Tab from "./Tab/Tab";
 import TodoScreen from "./TodoScreen/TodoScreen";
 import TodoList from "./TodoList/TodoList";
 import TodoItem from "./TodoItem/TodoItem";
+import Snackbar from "./Snackbar/Snackbar";
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   TodoScreen,
   TodoList,
   TodoItem,
+  Snackbar,
 };

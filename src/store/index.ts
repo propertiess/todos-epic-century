@@ -1,25 +1,27 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
+  persistReducer,
+  persistStore,
   PURGE,
   REGISTER,
+  REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { filterCategoriesSlice, todosSlice } from "./slices";
+import { filterCategoriesSlice, snackbarSlice, todosSlice } from "./slices";
 
 export const rootReducer = combineReducers({
   todos: todosSlice,
   filterCategories: filterCategoriesSlice,
+  snackbar: snackbarSlice,
 });
 
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["snackbar"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -1,5 +1,5 @@
-import MyButton from "@/components/ui/MyButton/MyButton";
 import { FC, HTMLAttributes, useState } from "react";
+import MyButton from "@/components/ui/MyButton/MyButton";
 import { useActions } from "@/store/hooks/useActions";
 import styles from "./TodoForm.module.scss";
 
@@ -7,7 +7,7 @@ interface Props extends HTMLAttributes<unknown> {}
 
 const TodoForm: FC<Props> = ({ ...rest }) => {
   const [value, setValue] = useState("");
-  const { createTodo } = useActions();
+  const { createTodo, setShow: setShowSnackBar } = useActions();
 
   const addTodo = () => {
     if (value.trim()) {
@@ -15,7 +15,8 @@ const TodoForm: FC<Props> = ({ ...rest }) => {
       setValue("");
       return;
     }
-    alert("Field is empty!");
+
+    setShowSnackBar(true);
   };
 
   return (
