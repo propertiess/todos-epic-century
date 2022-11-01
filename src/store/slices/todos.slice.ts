@@ -13,7 +13,7 @@ const todosSlice = createSlice({
         checked: false,
         title: action.payload,
       };
-      state.push(todo);
+      state.unshift(todo);
     },
     removeTodo: (state, action: PayloadAction<number>) => {
       return state.filter(todo => todo.id !== action.payload);

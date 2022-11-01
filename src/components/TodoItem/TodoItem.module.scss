@@ -1,5 +1,5 @@
 .item {
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   @apply flex justify-center items-center gap-5 p-3 rounded;
 
   &:hover {
@@ -11,12 +11,20 @@
   }
 
   label {
-    @apply flex-1 break-all cursor-pointer;
+    @apply flex-1 break-all;
+  }
+
+  input {
+    @apply cursor-pointer;
   }
 
   .icon {
     @apply w-[24px] h-[24px] cursor-pointer;
   }
+}
+
+.done {
+  @apply text-gray-300 text-opacity-80 line-through;
 }
 
 @media (max-width: 768px) {
