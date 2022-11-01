@@ -1,0 +1,17 @@
+.form {
+  @apply flex gap-3 justify-center items-center px-2;
+  input,
+  button {
+    @apply shadow px-2 py-1 rounded;
+  }
+  input {
+    @apply w-1/2 bg-[#333] bg-opacity-30
+      text-white;
+    &:focus {
+      @apply outline-none border-none;
+    }
+  }
+  // button {
+  //   @apply bg-[#2564cf] text-white;
+  // }
+}

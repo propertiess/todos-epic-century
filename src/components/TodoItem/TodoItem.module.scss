@@ -1,0 +1,32 @@
+.item {
+  transition: background-color 0.3s ease;
+  @apply flex justify-center items-center gap-5 p-3 rounded;
+
+  &:hover {
+    @apply bg-[#333] bg-opacity-20;
+  }
+
+  &:active {
+    @apply bg-[#333] bg-opacity-50;
+  }
+
+  label {
+    @apply flex-1 break-all cursor-pointer;
+  }
+
+  .icon {
+    @apply w-[24px] h-[24px] cursor-pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .item {
+    &:hover {
+      @apply bg-transparent;
+    }
+
+    &:active {
+      @apply bg-[#333] bg-opacity-50;
+    }
+  }
+}
