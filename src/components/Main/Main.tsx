@@ -1,6 +1,6 @@
-import { FC, HTMLAttributes } from "react";
-import { Container, TodoForm, TodoScreen } from "@/components";
-import styles from "./Main.module.scss";
+import { FC, HTMLAttributes } from 'react';
+import { Container, TodoForm, TodoScreen } from '@/components';
+import styles from './Main.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {}
 

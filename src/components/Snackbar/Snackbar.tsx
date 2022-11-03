@@ -1,9 +1,9 @@
-import { FC, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { RemoveIcon } from "../ui/icons";
-import { useActions } from "@/store/hooks/useActions";
-import { fadeInOutRight } from "@/animation";
-import styles from "./Snackbar.module.scss";
+import { FC, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { fadeInOutRight } from '@/animation';
+import { useActions } from '@/store/hooks/useActions';
+import { RemoveIcon } from '../ui/icons';
+import styles from './Snackbar.module.scss';
 
 interface Props {
   title: string;
@@ -12,7 +12,7 @@ interface Props {
 
 const Snackbar: FC<Props> = ({ title, isShow }) => {
   const { setShow } = useActions();
-  const timerId = useRef<number>();
+  const timerId = useRef<NodeJS.Timeout>();
 
   const closeHandler = () => {
     setShow(false);

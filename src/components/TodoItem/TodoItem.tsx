@@ -1,8 +1,8 @@
-import { RemoveIcon } from "@/components/ui/icons";
-import { ITodo } from "@/interfaces/todo.interface";
-import { useActions } from "@/store/hooks/useActions";
-import { FC, HTMLAttributes } from "react";
-import styles from "./TodoItem.module.scss";
+import { FC, HTMLAttributes } from 'react';
+import { RemoveIcon } from '@/components/ui/icons';
+import { ITodo } from '@/interfaces/todo.interface';
+import { useActions } from '@/store/hooks/useActions';
+import styles from './TodoItem.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {
   todo: ITodo;
@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<unknown> {
 
 const TodoItem: FC<Props> = ({ todo, ...rest }) => {
   const { toggleChecked, removeTodo } = useActions();
-  const isTodoDone = todo.checked ? styles.done : "";
+  const isTodoDone = todo.checked ? styles.done : '';
 
   const toggle = () => {
     toggleChecked(todo.id);
@@ -27,4 +27,4 @@ const TodoItem: FC<Props> = ({ todo, ...rest }) => {
   );
 };
 
-export {TodoItem};
+export { TodoItem };

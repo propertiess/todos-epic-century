@@ -1,7 +1,7 @@
-import { FC, HTMLAttributes } from "react";
-import { FilterTabs, TodoList } from "@/components";
-import { useFilteredTodos } from "@/hooks/useFilteredTodos";
-import styles from "./TodoScreen.module.scss";
+import { FC, HTMLAttributes } from 'react';
+import { FilterTabs, TodoList } from '@/components';
+import { useFilteredTodos } from '@/hooks/useFilteredTodos';
+import styles from './TodoScreen.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {}
 

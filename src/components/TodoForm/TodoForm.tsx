@@ -1,18 +1,18 @@
-import { FC, HTMLAttributes, useState } from "react";
-import { MyButton } from "@/components/ui/MyButton/MyButton";
-import { useActions } from "@/store/hooks/useActions";
-import styles from "./TodoForm.module.scss";
+import { FC, HTMLAttributes, useState } from 'react';
+import { MyButton } from '@/components/ui/MyButton/MyButton';
+import { useActions } from '@/store/hooks/useActions';
+import styles from './TodoForm.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {}
 
 const TodoForm: FC<Props> = ({ ...rest }) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const { createTodo, setShow: setShowSnackBar } = useActions();
 
   const addTodo = () => {
     if (value.trim()) {
       createTodo(value);
-      setValue("");
+      setValue('');
       return;
     }
 

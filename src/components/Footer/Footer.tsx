@@ -1,5 +1,5 @@
-import { FC, HTMLAttributes } from "react";
-import styles from "./Footer.module.scss";
+import { FC, HTMLAttributes } from 'react';
+import styles from './Footer.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {}
 

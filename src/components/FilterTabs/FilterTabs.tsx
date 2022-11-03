@@ -1,8 +1,8 @@
-import { FC, HTMLAttributes } from "react";
-import { useActions } from "@/store/hooks/useActions";
-import { Tab } from "@/components/Tab/Tab";
-import styles from "./FilterTabs.module.scss";
-import { tabs } from "@/utils/constants/tabs.constant";
+import { FC, HTMLAttributes } from 'react';
+import { Tab } from '@/components/Tab/Tab';
+import { useActions } from '@/store/hooks/useActions';
+import { tabs } from '@/utils/constants/tabs.constant';
+import styles from './FilterTabs.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {}
 

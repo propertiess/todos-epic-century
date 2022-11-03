@@ -1,5 +1,5 @@
-import { FC, HTMLAttributes, PropsWithChildren } from "react";
-import styles from "./MyButton.module.scss";
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import styles from './MyButton.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {}
 

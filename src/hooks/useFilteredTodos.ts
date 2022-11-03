@@ -1,5 +1,5 @@
-import { useMemo } from "react";
-import { useAppSelector } from "@/store/hooks/useAppSelector";
+import { useMemo } from 'react';
+import { useAppSelector } from '@/store/hooks/useAppSelector';
 
 export const useFilteredTodos = () => {
   const initialTodos = useAppSelector(state => state.todos);
@@ -7,16 +7,16 @@ export const useFilteredTodos = () => {
 
   const filteredTodos = useMemo(() => {
     switch (type) {
-      case "checked":
+      case 'checked':
         return initialTodos.filter(todo => todo.checked);
-      case "unchecked":
+      case 'unchecked':
         return initialTodos.filter(todo => !todo.checked);
-      default: 
-        return initialTodos
+      default:
+        return initialTodos;
     }
   }, [initialTodos, type]);
 
   return {
-    filteredTodos,
+    filteredTodos
   };
 };

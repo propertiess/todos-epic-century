@@ -1,27 +1,27 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
   FLUSH,
   PAUSE,
   PERSIST,
-  persistReducer,
-  persistStore,
   PURGE,
   REGISTER,
   REHYDRATE,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import { filterCategoriesSlice, snackbarSlice, todosSlice } from "./slices";
+  persistReducer,
+  persistStore
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { filterCategoriesSlice, snackbarSlice, todosSlice } from './slices';
 
 export const rootReducer = combineReducers({
   todos: todosSlice.reducer,
   filterCategories: filterCategoriesSlice.reducer,
-  snackbar: snackbarSlice.reducer,
+  snackbar: snackbarSlice.reducer
 });
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-  blacklist: ["snackbar"],
+  blacklist: ['snackbar']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -31,9 +31,9 @@ const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+      }
+    })
 });
 
 export const persistor = persistStore(store);

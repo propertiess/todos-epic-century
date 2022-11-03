@@ -1,3 +1,3 @@
 export interface IFilter {
-  type: "all" | "checked" | "unchecked";
+  type: 'all' | 'checked' | 'unchecked';
 }

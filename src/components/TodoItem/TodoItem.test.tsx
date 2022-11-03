@@ -1,8 +1,8 @@
-import { Provider } from "react-redux";
-import { render, screen } from "@testing-library/react";
-import TodoItem from "./TodoItem";
-import { mockTodo } from "@/utils/helpers/mockTodo";
-import store from "@/store";
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import store from '@/store';
+import { mockTodo } from '@/utils/helpers/mockTodo';
+import { TodoItem } from './TodoItem';
 
 const setup = () =>
   render(
@@ -11,22 +11,22 @@ const setup = () =>
     </Provider>
   );
 
-describe("TodoItem", () => {
-  test("renders", () => {
+describe('TodoItem', () => {
+  test('renders', () => {
     setup();
-    expect(screen.getByTestId("item")).toBeInTheDocument();
+    expect(screen.getByTestId('item')).toBeInTheDocument();
   });
 
-  test("input checked is false", () => {
+  test('input checked is false', () => {
     setup();
-    const checkboxEl: HTMLInputElement = screen.getByRole("checkbox");
+    const checkboxEl: HTMLInputElement = screen.getByRole('checkbox');
     expect(checkboxEl).toBeInTheDocument();
     expect(checkboxEl.checked).toBe(false);
   });
 
-  test("label title is correct", () => {
+  test('label title is correct', () => {
     setup();
-    const labelEl: HTMLLabelElement = screen.getByTestId("todo-label");
+    const labelEl: HTMLLabelElement = screen.getByTestId('todo-label');
     expect(labelEl.textContent).toMatch(mockTodo.title);
   });
 });
