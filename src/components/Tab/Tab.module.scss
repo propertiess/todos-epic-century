@@ -2,5 +2,5 @@
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   transition: background-color 0.3s ease;
-  @apply flex justify-center items-center cursor-pointer list-none h-[26px] w-[50px] shadow;
+  @apply flex justify-center items-center cursor-pointer list-none py-1 w-[50px];
 }

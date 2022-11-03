@@ -9,11 +9,8 @@ const TodoScreen: FC<Props> = ({ ...rest }) => {
   const { filteredTodos } = useFilteredTodos();
 
   return (
-    <div className={styles.wrap} {...rest}>
-      <FilterTabs />
-      <div className={styles.screen}>
-        <TodoList todos={filteredTodos} />
-      </div>
+    <div className={styles.screen} {...rest}>
+      <TodoList todos={filteredTodos} />
     </div>
   );
 };

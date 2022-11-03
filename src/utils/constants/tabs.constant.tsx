@@ -5,10 +5,7 @@ import {
 } from '@/components/ui/icons';
 import { ITab } from '@/interfaces/tab.interface';
 
-const size = {
-  width: 24,
-  height: 24
-};
+const size = {};
 
 export const tabs: ITab[] = [
   { icon: <TabAllIcon {...size} />, type: 'all' },
