@@ -1,6 +1,7 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { fadeInOutRight } from '@/animation';
+import { useTimerForAutoHide } from '@/hooks/useTimerForAutoHide';
 import { useActions } from '@/store/hooks/useActions';
 import { RemoveIcon } from '../ui/icons';
 import styles from './Snackbar.module.scss';
@@ -12,30 +13,17 @@ interface Props {
 
 const Snackbar: FC<Props> = ({ title, isShow }) => {
   const { setShow } = useActions();
-  const timerId = useRef<NodeJS.Timeout>();
 
   const closeHandler = () => {
     setShow(false);
   };
 
-  useEffect(() => {
-    timerId.current = setTimeout(() => {
-      setShow(false);
-    }, 6000);
-
-    return () => {
-      clearTimeout(timerId.current);
-    };
-  }, [isShow]);
+  useTimerForAutoHide(isShow, setShow, 6000);
 
   return (
     <AnimatePresence initial={false}>
       {isShow && (
-        <motion.div
-          className={styles.content}
-          {...fadeInOutRight}
-          onClick={closeHandler}
-        >
+        <motion.div className={styles.content} {...fadeInOutRight}>
           <p>{title}</p>
           <RemoveIcon onClick={closeHandler} />
         </motion.div>
