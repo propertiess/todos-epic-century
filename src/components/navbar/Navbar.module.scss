@@ -1,6 +1,6 @@
 .nav {
   @apply flex justify-center items-center;
   img {
-    @apply h-auto max-h-10;
+    @apply block py-1 h-[40px];
   }
 }
