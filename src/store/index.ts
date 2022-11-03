@@ -13,9 +13,9 @@ import storage from "redux-persist/lib/storage";
 import { filterCategoriesSlice, snackbarSlice, todosSlice } from "./slices";
 
 export const rootReducer = combineReducers({
-  todos: todosSlice,
-  filterCategories: filterCategoriesSlice,
-  snackbar: snackbarSlice,
+  todos: todosSlice.reducer,
+  filterCategories: filterCategoriesSlice.reducer,
+  snackbar: snackbarSlice.reducer,
 });
 
 const persistConfig = {

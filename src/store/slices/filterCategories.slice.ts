@@ -5,7 +5,7 @@ const initialState: IFilter = {
   type: "all",
 };
 
-const filterCategoriesSlice = createSlice({
+export const filterCategoriesSlice = createSlice({
   name: "filterCategories",
   initialState,
   reducers: {
@@ -18,5 +18,3 @@ const filterCategoriesSlice = createSlice({
   },
 });
 
-export const filterCategoriesActions = filterCategoriesSlice.actions;
-export default filterCategoriesSlice.reducer;

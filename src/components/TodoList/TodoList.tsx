@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from "react";
 import { ITodo } from "@/interfaces/todo.interface";
-import TodoItem from "@/components/TodoItem/TodoItem";
+import { TodoItem } from "@/components/TodoItem/TodoItem";
 import styles from "./TodoList.module.scss";
 
 interface Props extends HTMLAttributes<unknown> {
@@ -17,4 +17,4 @@ const TodoList: FC<Props> = ({ todos, ...rest }) => {
   );
 };
 
-export default TodoList;
+export { TodoList };

@@ -17,4 +17,4 @@ const Tab: FC<Props> = ({ Component, type, ...rest }) => {
   );
 };
 
-export default Tab;
+export { Tab };

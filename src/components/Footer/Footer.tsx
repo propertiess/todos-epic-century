@@ -11,4 +11,4 @@ const Footer: FC<Props> = ({ ...rest }) => {
   );
 };
 
-export default Footer;
+export { Footer };

@@ -15,4 +15,4 @@ const Main: FC<Props> = ({ ...rest }) => {
   );
 };
 
-export default Main;
+export { Main };

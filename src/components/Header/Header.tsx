@@ -11,4 +11,4 @@ const Header: FC<Props> = ({ ...rest }) => {
   );
 };
 
-export default Header;
+export { Header };

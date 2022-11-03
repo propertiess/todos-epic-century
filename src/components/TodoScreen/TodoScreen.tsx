@@ -18,4 +18,4 @@ const TodoScreen: FC<Props> = ({ ...rest }) => {
   );
 };
 
-export default TodoScreen;
+export { TodoScreen };

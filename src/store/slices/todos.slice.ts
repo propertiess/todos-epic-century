@@ -3,7 +3,7 @@ import { ITodo } from "@/interfaces/todo.interface";
 
 const initialState: ITodo[] = [];
 
-const todosSlice = createSlice({
+export const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
@@ -15,9 +15,11 @@ const todosSlice = createSlice({
       };
       state.unshift(todo);
     },
+
     removeTodo: (state, action: PayloadAction<number>) => {
       return state.filter(todo => todo.id !== action.payload);
     },
+    
     toggleChecked: (state, action: PayloadAction<number>) => {
       state.map(
         todo => todo.id === action.payload && (todo.checked = !todo.checked)
@@ -25,6 +27,3 @@ const todosSlice = createSlice({
     },
   },
 });
-
-export const todosActions = todosSlice.actions;
-export default todosSlice.reducer;

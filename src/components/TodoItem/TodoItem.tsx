@@ -27,4 +27,4 @@ const TodoItem: FC<Props> = ({ todo, ...rest }) => {
   );
 };
 
-export default TodoItem;
+export {TodoItem};

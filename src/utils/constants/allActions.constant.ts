@@ -1,9 +1,11 @@
-import { filterCategoriesActions } from "@/store/slices/filterCategories.slice";
-import { snackbarActions } from "@/store/slices/snackbar.slice";
-import { todosActions } from "@/store/slices/todos.slice";
+import {
+  filterCategoriesSlice,
+  snackbarSlice,
+  todosSlice,
+} from "@/store/slices";
 
 export const allActions = {
-  ...todosActions,
-  ...filterCategoriesActions,
-  ...snackbarActions,
+  ...todosSlice.actions,
+  ...filterCategoriesSlice.actions,
+  ...snackbarSlice.actions,
 };

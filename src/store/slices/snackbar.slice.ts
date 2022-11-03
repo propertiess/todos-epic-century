@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const snackbarSlice = createSlice({
+export const snackbarSlice = createSlice({
   name: "snackbar",
   initialState: false,
   reducers: {
@@ -9,6 +9,3 @@ const snackbarSlice = createSlice({
     },
   },
 });
-
-export const snackbarActions = snackbarSlice.actions;
-export default snackbarSlice.reducer;

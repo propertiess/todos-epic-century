@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from "react";
 import { useActions } from "@/store/hooks/useActions";
-import Tab from "@/components/Tab/Tab";
+import { Tab } from "@/components/Tab/Tab";
 import styles from "./FilterTabs.module.scss";
 import { tabs } from "@/utils/constants/tabs.constant";
 
@@ -23,4 +23,4 @@ const FilterTabs: FC<Props> = ({ ...rest }) => {
   );
 };
 
-export default FilterTabs;
+export { FilterTabs };

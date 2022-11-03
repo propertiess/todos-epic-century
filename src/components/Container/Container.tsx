@@ -5,4 +5,4 @@ const Container: FC<PropsWithChildren> = ({ children }) => {
   return <div className={styles.container}>{children}</div>;
 };
 
-export default Container;
+export { Container };

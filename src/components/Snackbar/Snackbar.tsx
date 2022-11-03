@@ -12,7 +12,7 @@ interface Props {
 
 const Snackbar: FC<Props> = ({ title, isShow }) => {
   const { setShow } = useActions();
-  const timerId = useRef<NodeJS.Timeout>();
+  const timerId = useRef<number>();
 
   const closeHandler = () => {
     setShow(false);
@@ -33,10 +33,7 @@ const Snackbar: FC<Props> = ({ title, isShow }) => {
       {isShow && (
         <motion.div
           className={styles.content}
-          initial='initial'
-          animate='animate'
-          exit='exit'
-          variants={fadeInOutRight}
+          {...fadeInOutRight}
           onClick={closeHandler}
         >
           <p>{title}</p>
@@ -47,4 +44,4 @@ const Snackbar: FC<Props> = ({ title, isShow }) => {
   );
 };
 
-export default Snackbar;
+export { Snackbar };

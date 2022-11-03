@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, useState } from "react";
-import MyButton from "@/components/ui/MyButton/MyButton";
+import { MyButton } from "@/components/ui/MyButton/MyButton";
 import { useActions } from "@/store/hooks/useActions";
 import styles from "./TodoForm.module.scss";
 
@@ -34,4 +34,4 @@ const TodoForm: FC<Props> = ({ ...rest }) => {
   );
 };
 
-export default TodoForm;
+export { TodoForm };

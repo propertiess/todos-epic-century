@@ -2,7 +2,7 @@ import React from "react";
 import { Footer, Header, Main, Snackbar } from "@/components";
 import { useAppSelector } from "@/store/hooks/useAppSelector";
 
-function App() {
+const App = () => {
   const isShow = useAppSelector(state => state.snackbar);
 
   return (
@@ -15,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export  {App};

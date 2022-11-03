@@ -1,5 +1,6 @@
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
 import styles from "./MyButton.module.scss";
+
 interface Props extends HTMLAttributes<unknown> {}
 
 const MyButton: FC<PropsWithChildren<Props>> = ({ children, ...rest }) => {
@@ -10,4 +11,4 @@ const MyButton: FC<PropsWithChildren<Props>> = ({ children, ...rest }) => {
   );
 };
 
-export default MyButton;
+export { MyButton };
