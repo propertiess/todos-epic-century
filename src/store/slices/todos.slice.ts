@@ -11,7 +11,8 @@ export const todosSlice = createSlice({
       const todo: ITodo = {
         id: Date.now(),
         checked: false,
-        title: action.payload
+        title: action.payload,
+        timeDone: null
       };
       state.unshift(todo);
     },
@@ -21,9 +22,13 @@ export const todosSlice = createSlice({
     },
 
     toggleChecked: (state, action: PayloadAction<number>) => {
-      state.map(
-        todo => todo.id === action.payload && (todo.checked = !todo.checked)
-      );
+      state.map(todo => {
+        if (todo.id === action.payload) {
+          todo.checked = !todo.checked;
+          todo.timeDone = Date.now();
+        }
+        if (!todo.checked) todo.timeDone = null;
+      });
     }
   }
 });

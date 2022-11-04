@@ -9,6 +9,7 @@ import { TodoForm } from './TodoForm/TodoForm';
 import { TodoItem } from './TodoItem/TodoItem';
 import { TodoList } from './TodoList/TodoList';
 import { TodoScreen } from './TodoScreen/TodoScreen';
+import { Navbar } from './navbar/Navbar';
 
 export {
   Header,
@@ -21,5 +22,6 @@ export {
   TodoScreen,
   TodoList,
   TodoItem,
-  Snackbar
+  Snackbar,
+  Navbar
 };
