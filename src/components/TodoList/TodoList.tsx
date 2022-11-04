@@ -1,19 +1,22 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { TodoItem } from '@/components/TodoItem/TodoItem';
 import { ITodo } from '@/interfaces/todo.interface';
 import styles from './TodoList.module.scss';
 
-interface Props extends HTMLAttributes<unknown> {
+interface Props {
   todos: ITodo[];
 }
 
-const TodoList: FC<Props> = ({ todos, ...rest }) => {
+const TodoList: FC<Props> = ({ todos }) => {
   return (
-    <ul className={styles.list} {...rest}>
-      {todos.map(todo => (
-        <TodoItem key={todo.id} todo={todo} />
-      ))}
-    </ul>
+    <motion.ul className={styles.list} layout>
+      <AnimatePresence initial={false} mode='popLayout'>
+        {todos.map(todo => (
+          <TodoItem key={todo.id} todo={todo} />
+        ))}
+      </AnimatePresence>
+    </motion.ul>
   );
 };
 

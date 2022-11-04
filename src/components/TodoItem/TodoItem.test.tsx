@@ -7,7 +7,7 @@ import { TodoItem } from './TodoItem';
 const setup = () =>
   render(
     <Provider store={store}>
-      <TodoItem data-testid='item' todo={mockTodo} />
+      <TodoItem todo={mockTodo} />
     </Provider>
   );
 

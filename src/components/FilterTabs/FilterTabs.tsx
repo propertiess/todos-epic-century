@@ -1,16 +1,14 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC } from 'react';
 import { Tab } from '@/components/Tab/Tab';
 import { useActions } from '@/store/hooks/useActions';
 import { tabs } from '@/utils/constants/tabs.constant';
 import styles from './FilterTabs.module.scss';
 
-interface Props extends HTMLAttributes<unknown> {}
-
-const FilterTabs: FC<Props> = ({ ...rest }) => {
+const FilterTabs: FC = () => {
   const { setFilter } = useActions();
 
   return (
-    <ul className={styles.tabs} {...rest}>
+    <ul className={styles.tabs}>
       {tabs.map(tab => (
         <Tab
           key={tab.type}
