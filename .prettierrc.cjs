@@ -7,13 +7,13 @@ module.exports = {
   jsxSingleQuote: true,
   plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')],
   importOrder: [
-    'react',
-    '^(?!react)\\w+$',
+    '^(react|next(.*))$',
     '<THIRD_PARTY_MODULES>',
     '^@/components$',
     '^@/components/(.*)$',
     '^@/(.*)$',
-    '^[./]'
+    '^[./]',
+    '^(.*)(sass|css|scss)$'
   ],
   importOrderSortSpecifiers: true
 };
