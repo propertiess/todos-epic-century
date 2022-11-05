@@ -1,4 +1,3 @@
-import React from 'react';
 import { Footer, Header, Main, Snackbar } from '@/components';
 import { useAppSelector } from '@/store/hooks/useAppSelector';
 

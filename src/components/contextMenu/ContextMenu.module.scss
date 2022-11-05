@@ -1,0 +1,7 @@
+.wrap {
+  @apply bg-white absolute top-0 left-1/2 p-3 shadow z-10;
+
+  .btn {
+    @apply text-red-500 font-medium;
+  }
+}

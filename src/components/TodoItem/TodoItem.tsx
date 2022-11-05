@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
-import { RemoveIcon } from '@/components/ui/icons';
 import { fadeInOutDown } from '@/animation';
 import { ITodo } from '@/interfaces/todo.interface';
 import { useActions } from '@/store/hooks/useActions';
@@ -11,17 +10,23 @@ interface Props {
 }
 
 const TodoItem: FC<Props> = ({ todo }) => {
-  const { toggleChecked, removeTodo } = useActions();
+  const { toggleChecked, setShowContextMenu } = useActions();
   const isTodoDone = todo.checked ? styles.done : '';
 
   const toggle = () => {
     toggleChecked(todo.id);
   };
 
+  const openContextMenu = (e: React.MouseEvent<HTMLLIElement>) => {
+    e.preventDefault();
+    setShowContextMenu(todo.id);
+  };
+
   return (
     <motion.li
       className={styles.item}
       onClick={toggle}
+      onContextMenu={openContextMenu}
       layout
       {...fadeInOutDown}
       data-testid='item'
@@ -30,10 +35,6 @@ const TodoItem: FC<Props> = ({ todo }) => {
       <label data-testid='todo-label' className={isTodoDone}>
         {todo.title}
       </label>
-      <RemoveIcon
-        className={styles.icon + ' ' + isTodoDone}
-        onClick={() => removeTodo(todo.id)}
-      />
     </motion.li>
   );
 };

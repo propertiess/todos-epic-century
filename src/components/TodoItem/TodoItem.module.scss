@@ -1,6 +1,6 @@
 .item {
   transition: background-color 0.5s ease, color 0.5s ease;
-  @apply flex justify-center items-center gap-5 p-3 rounded;
+  @apply flex relative justify-center items-center gap-5 p-3 rounded;
 
   &:hover {
     @apply bg-[#333] bg-opacity-20;
@@ -17,14 +17,6 @@
   input {
     @apply cursor-pointer;
   }
-
-  .icon {
-    @apply w-[24px] h-[24px] cursor-pointer;
-  }
-}
-
-.done {
-  @apply text-[#738290] line-through;
 }
 
 @media (max-width: 768px) {

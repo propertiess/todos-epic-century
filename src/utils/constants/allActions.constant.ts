@@ -1,4 +1,5 @@
 import {
+  contextMenuSlice,
   filterCategoriesSlice,
   snackbarSlice,
   todosSlice
@@ -7,5 +8,6 @@ import {
 export const allActions = {
   ...todosSlice.actions,
   ...filterCategoriesSlice.actions,
-  ...snackbarSlice.actions
+  ...snackbarSlice.actions,
+  ...contextMenuSlice.actions
 };

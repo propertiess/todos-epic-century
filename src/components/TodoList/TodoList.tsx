@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TodoItem } from '@/components/TodoItem/TodoItem';
 import { ITodo } from '@/interfaces/todo.interface';
+import { ContextMenu } from '../contextMenu/ContextMenu';
 import styles from './TodoList.module.scss';
 
 interface Props {
@@ -13,7 +14,10 @@ const TodoList: FC<Props> = ({ todos }) => {
     <motion.ul className={styles.list} layout>
       <AnimatePresence initial={false} mode='popLayout'>
         {todos.map(todo => (
-          <TodoItem key={todo.id} todo={todo} />
+          <div className='relative' key={todo.id}>
+            <TodoItem todo={todo} />
+            <ContextMenu todoId={todo.id} />
+          </div>
         ))}
       </AnimatePresence>
     </motion.ul>
