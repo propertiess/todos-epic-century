@@ -11,12 +11,21 @@
   }
 
   label {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     @apply flex-1 break-all;
   }
 
   input {
     @apply cursor-pointer;
   }
+}
+
+.done {
+  @apply text-[#738290] line-through;
 }
 
 @media (max-width: 768px) {

@@ -14,6 +14,7 @@ const TodoItem: FC<Props> = ({ todo }) => {
   const isTodoDone = todo.checked ? styles.done : '';
 
   const toggle = () => {
+    setShowContextMenu(null);
     toggleChecked(todo.id);
   };
 
@@ -22,11 +23,16 @@ const TodoItem: FC<Props> = ({ todo }) => {
     setShowContextMenu(todo.id);
   };
 
+  const onTouchMoveCapture = () => {
+    setShowContextMenu(todo.id);
+  };
+
   return (
     <motion.li
       className={styles.item}
       onClick={toggle}
       onContextMenu={openContextMenu}
+      onTouchMoveCapture={onTouchMoveCapture}
       layout
       {...fadeInOutDown}
       data-testid='item'
