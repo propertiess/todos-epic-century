@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
+import { LongPressDetectEvents, useLongPress } from 'use-long-press';
 import { fadeInOutDown } from '@/animation';
 import { ITodo } from '@/interfaces/todo.interface';
 import { useActions } from '@/store/hooks/useActions';
-import { useAppSelector } from '@/store/hooks/useAppSelector';
 import styles from './TodoItem.module.scss';
 
 interface Props {
@@ -11,24 +11,19 @@ interface Props {
 }
 
 const TodoItem: FC<Props> = ({ todo }) => {
-  const { id } = useAppSelector(state => state.contextMenu);
   const { toggleChecked, setShowContextMenu } = useActions();
   const isTodoDone = todo.checked ? styles.done : '';
+
+  const onLongPress = useLongPress(() => setShowContextMenu(todo.id), {
+    detect: LongPressDetectEvents.TOUCH
+  });
 
   const toggle = () => {
     setShowContextMenu(null);
     toggleChecked(todo.id);
   };
 
-  const openContextMenu = (
-    e: React.MouseEvent<HTMLLIElement> | React.TouchEvent<HTMLLIElement>
-  ) => {
-    if (e.type === 'touchmove') {
-      id && todo.id !== id && setShowContextMenu(todo.id);
-      !id && setShowContextMenu(todo.id);
-      return;
-    }
-    
+  const openContextMenu = (e: React.MouseEvent<HTMLLIElement>) => {
     e.preventDefault();
     setShowContextMenu(todo.id);
   };
@@ -38,9 +33,9 @@ const TodoItem: FC<Props> = ({ todo }) => {
       className={styles.item}
       onClick={toggle}
       onContextMenu={openContextMenu}
-      onTouchMove={openContextMenu}
       layout
       {...fadeInOutDown}
+      {...onLongPress()}
       data-testid='item'
     >
       <input type='checkbox' checked={todo.checked} readOnly />
