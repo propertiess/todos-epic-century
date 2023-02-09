@@ -20,7 +20,16 @@ export const TodoList = ({ todos }: Props) => {
 
   const onContextMenu = useCallback(
     (e: React.MouseEvent<HTMLLIElement>, id: number) => {
-      setContextMenuProps({ id, top: e.clientY, left: e.clientX });
+      const clientX =
+        e.clientX ?? (e as unknown as TouchEvent).touches[0].clientX;
+      const clientY =
+        e.clientY ?? (e as unknown as TouchEvent).touches[0].clientY;
+
+      setContextMenuProps({
+        id,
+        top: clientY,
+        left: clientX
+      });
     },
     []
   );

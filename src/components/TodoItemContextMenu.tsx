@@ -29,7 +29,7 @@ export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
           ref={ref}
         >
           <button
-            className='text-red-500 font-medium'
+            className='text-red-500 font-medium select-none'
             onClick={closeContextAndRemoveTodo}
           >
             Удалить
