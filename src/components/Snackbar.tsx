@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { fadeInOutRight } from '@/animation';
 import { useTimerForAutoHide } from '@/hooks/useTimerForAutoHide';
 import { useActions } from '@/store/hooks/useActions';
-import styles from './Snackbar.module.scss';
 import { RemoveIcon } from './ui/icons';
 
 interface Props {

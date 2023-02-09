@@ -29,15 +29,12 @@ const TodoItem: FC<Props> = ({ todo }) => {
 
   return (
     <motion.li
-      className='flex justify-center items-center gap-5 p-3 rounded'
+      className='flex justify-center items-center gap-5 p-3 rounded hover:bg-[#333] hover:bg-opacity-20'
       onClick={toggle}
       onContextMenu={openContextMenu}
       layout
-      // {...fadeInOutDown}
-      // {...onLongPress()}
-      whileHover={{
-        background: 'black'
-      }}
+      {...fadeInOutDown}
+      {...onLongPress()}
       data-testid='item'
     >
       <input

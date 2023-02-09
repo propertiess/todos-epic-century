@@ -1,7 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
 import { clsx } from 'clsx';
 import { useFilterType } from '@/hooks/useFilterType';
-import styles from './Tab.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {
   Component: JSX.Element;

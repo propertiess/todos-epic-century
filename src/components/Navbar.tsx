@@ -1,7 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
 import Logo from '@/assets/logo.png';
 import { FilterTabs } from './FilterTabs/FilterTabs';
-import styles from './Navbar.module.scss';
 
 interface Props extends HTMLAttributes<unknown> {}
 
