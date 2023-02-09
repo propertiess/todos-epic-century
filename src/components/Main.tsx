@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { Container, TodoForm, TodoScreen } from '@/components';
 import { useActions } from '@/store/hooks/useActions';
 import { useAppSelector } from '@/store/hooks/useAppSelector';
-import styles from './Main.module.scss';
 
 const Main: FC = () => {
   const { id } = useAppSelector(state => state.contextMenu);
@@ -14,7 +13,7 @@ const Main: FC = () => {
   };
 
   return (
-    <main className={styles.main} onClick={closeContextMenu}>
+    <main onClick={closeContextMenu}>
       <Container>
         <TodoForm />
         <TodoScreen />

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import styles from '@/components/FilterTabs/FilterTabs.module.scss';
 import { useAppSelector } from '@/store/hooks/useAppSelector';
 
 export const useFilterType = (initialType: string) => {
@@ -7,7 +6,9 @@ export const useFilterType = (initialType: string) => {
   const [activeTab, setActiveTab] = useState<string>('');
 
   useEffect(() => {
-    type === initialType ? setActiveTab(styles.active) : setActiveTab('');
+    type === initialType
+      ? setActiveTab('bg-[#333] bg-opacity-10')
+      : setActiveTab('');
   }, [type]); // eslint-disable-line
 
   return {

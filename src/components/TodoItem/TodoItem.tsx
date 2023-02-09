@@ -1,10 +1,10 @@
 import { FC } from 'react';
+import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
 import { LongPressDetectEvents, useLongPress } from 'use-long-press';
 import { fadeInOutDown } from '@/animation';
 import { ITodo } from '@/interfaces/todo.interface';
 import { useActions } from '@/store/hooks/useActions';
-import styles from './TodoItem.module.scss';
 
 interface Props {
   todo: ITodo;
@@ -12,7 +12,6 @@ interface Props {
 
 const TodoItem: FC<Props> = ({ todo }) => {
   const { toggleChecked, setShowContextMenu } = useActions();
-  const isTodoDone = todo.checked ? styles.done : '';
 
   const onLongPress = useLongPress(() => setShowContextMenu(todo.id), {
     detect: LongPressDetectEvents.TOUCH
@@ -30,7 +29,7 @@ const TodoItem: FC<Props> = ({ todo }) => {
 
   return (
     <motion.li
-      className={styles.item}
+      className='flex justify-center items-center gap-5 p-3 rounded hover:bg-[#333] hover:bg-opacity-20'
       onClick={toggle}
       onContextMenu={openContextMenu}
       layout
@@ -38,8 +37,19 @@ const TodoItem: FC<Props> = ({ todo }) => {
       {...onLongPress()}
       data-testid='item'
     >
-      <input type='checkbox' checked={todo.checked} readOnly />
-      <label data-testid='todo-label' className={isTodoDone}>
+      <input
+        className='cursor-pointer'
+        type='checkbox'
+        checked={todo.checked}
+        readOnly
+      />
+      <label
+        data-testid='todo-label'
+        className={clsx(
+          'flex-1 break-all',
+          todo.checked && 'text-[#738290] line-through'
+        )}
+      >
         {todo.title}
       </label>
     </motion.li>

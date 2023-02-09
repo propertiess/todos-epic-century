@@ -1,29 +1,13 @@
-import { Container } from './Container/Container';
-import { FilterTabs } from './FilterTabs/FilterTabs';
-import { Footer } from './Footer/Footer';
-import { Header } from './Header/Header';
-import { Main } from './Main/Main';
-import { Snackbar } from './Snackbar/Snackbar';
-import { Tab } from './Tab/Tab';
-import { TodoForm } from './TodoForm/TodoForm';
-import { TodoItem } from './TodoItem/TodoItem';
-import { TodoList } from './TodoList/TodoList';
-import { TodoScreen } from './TodoScreen/TodoScreen';
-import { ContextMenu } from './contextMenu/ContextMenu';
-import { Navbar } from './navbar/Navbar';
-
-export {
-  Header,
-  Main,
-  Footer,
-  Container,
-  TodoForm,
-  FilterTabs,
-  Tab,
-  TodoScreen,
-  TodoList,
-  TodoItem,
-  Snackbar,
-  Navbar,
-  ContextMenu
-};
+export * from './TodoForm/TodoForm';
+export * from './TodoItem/TodoItem';
+export * from './Footer';
+export * from './Header';
+export * from './Main';
+export * from './Container';
+export * from './ContextMenu';
+export * from './FilterTabs';
+export * from './Navbar';
+export * from './Snackbar';
+export * from './Tab';
+export * from './TodoList';
+export * from './TodoScreen';
