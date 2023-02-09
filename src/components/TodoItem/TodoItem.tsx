@@ -1,36 +1,37 @@
-import { FC } from 'react';
+import { MouseEvent, memo } from 'react';
 import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
 import { LongPressDetectEvents, useLongPress } from 'use-long-press';
 import { fadeInOutDown } from '@/animation';
 import { ITodo } from '@/interfaces/todo.interface';
-import { useActions } from '@/store/hooks/useActions';
 
-interface Props {
+type Props = {
   todo: ITodo;
-}
+  onContextMenu: (e: MouseEvent<HTMLLIElement>, id: number) => void;
+  onChecked: (id: number) => void;
+};
 
-const TodoItem: FC<Props> = ({ todo }) => {
-  const { toggleChecked, setShowContextMenu } = useActions();
-
-  const onLongPress = useLongPress(() => setShowContextMenu(todo.id), {
-    detect: LongPressDetectEvents.TOUCH
-  });
-
-  const toggle = () => {
-    setShowContextMenu(null);
-    toggleChecked(todo.id);
-  };
+export const TodoItem = memo(function TodoItem({
+  todo,
+  onContextMenu,
+  onChecked
+}: Props) {
+  const onLongPress = useLongPress(
+    e => onContextMenu(e as MouseEvent<HTMLLIElement>, todo.id),
+    {
+      detect: LongPressDetectEvents.TOUCH
+    }
+  );
 
   const openContextMenu = (e: React.MouseEvent<HTMLLIElement>) => {
     e.preventDefault();
-    setShowContextMenu(todo.id);
+    onContextMenu(e, todo.id);
   };
 
   return (
     <motion.li
       className='flex justify-center items-center gap-5 p-3 rounded hover:bg-[#333] hover:bg-opacity-20'
-      onClick={toggle}
+      onClick={() => onChecked(todo.id)}
       onContextMenu={openContextMenu}
       layout
       {...fadeInOutDown}
@@ -54,6 +55,4 @@ const TodoItem: FC<Props> = ({ todo }) => {
       </label>
     </motion.li>
   );
-};
-
-export { TodoItem };
+});

@@ -1,19 +1,8 @@
-import { FC } from 'react';
 import { Container, TodoForm, TodoScreen } from '@/components';
-import { useActions } from '@/store/hooks/useActions';
-import { useAppSelector } from '@/store/hooks/useAppSelector';
 
-const Main: FC = () => {
-  const { id } = useAppSelector(state => state.contextMenu);
-  const { setShowContextMenu } = useActions();
-
-  const closeContextMenu = () => {
-    if (!id) return;
-    setShowContextMenu(null);
-  };
-
+const Main = () => {
   return (
-    <main onClick={closeContextMenu}>
+    <main>
       <Container>
         <TodoForm />
         <TodoScreen />

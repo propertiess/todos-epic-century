@@ -1,11 +1,6 @@
-import {
-  contextMenuSlice,
-  filterCategoriesSlice,
-  todosSlice
-} from '@/store/slices';
+import { filterCategoriesSlice, todosSlice } from '@/store/slices';
 
 export const allActions = {
   ...todosSlice.actions,
-  ...filterCategoriesSlice.actions,
-  ...contextMenuSlice.actions
+  ...filterCategoriesSlice.actions
 };

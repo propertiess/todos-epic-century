@@ -7,7 +7,7 @@ import { TodoItem } from './TodoItem';
 const setup = () =>
   render(
     <Provider store={store}>
-      <TodoItem todo={mockTodo} />
+      <TodoItem todo={mockTodo} onChecked={() => {}} onContextMenu={() => {}} />
     </Provider>
   );
 

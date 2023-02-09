@@ -10,18 +10,16 @@ import {
   persistStore
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { contextMenuSlice, filterCategoriesSlice, todosSlice } from './slices';
+import { filterCategoriesSlice, todosSlice } from './slices';
 
 export const rootReducer = combineReducers({
   todos: todosSlice.reducer,
-  filterCategories: filterCategoriesSlice.reducer,
-  contextMenu: contextMenuSlice.reducer
+  filterCategories: filterCategoriesSlice.reducer
 });
 
 const persistConfig = {
   key: 'root',
-  storage,
-  blacklist: ['contextMenu']
+  storage
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

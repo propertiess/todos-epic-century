@@ -4,7 +4,7 @@ export * from './Footer';
 export * from './Header';
 export * from './Main';
 export * from './Container';
-export * from './ContextMenu';
+export * from './TodoItemContextMenu';
 export * from './FilterTabs';
 export * from './Navbar';
 export * from './Notification';
