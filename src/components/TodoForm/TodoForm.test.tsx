@@ -7,7 +7,7 @@ import { TodoForm } from './TodoForm';
 const setup = () =>
   render(
     <Provider store={store}>
-      <TodoForm data-testid='todo-form' />
+      <TodoForm />
     </Provider>
   );
 

@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
 export const useTimerForAutoHide = <T>(
   deps: T,
-  action: ActionCreatorWithPayload<boolean, string>,
+  close: () => void,
   delay: number
 ) => {
   const timerId = useRef<NodeJS.Timeout>();
@@ -12,7 +11,7 @@ export const useTimerForAutoHide = <T>(
     if (!deps) return;
 
     timerId.current = setTimeout(() => {
-      action(false);
+      close();
     }, delay);
 
     return () => {

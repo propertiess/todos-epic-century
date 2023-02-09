@@ -7,7 +7,7 @@ export * from './Container';
 export * from './ContextMenu';
 export * from './FilterTabs';
 export * from './Navbar';
-export * from './Snackbar';
+export * from './Notification';
 export * from './Tab';
 export * from './TodoList';
 export * from './TodoScreen';

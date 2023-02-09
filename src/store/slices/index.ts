@@ -1,6 +1,3 @@
-import { contextMenuSlice } from './context-menu.slice';
-import { filterCategoriesSlice } from './filterCategories.slice';
-import { snackbarSlice } from './snackbar.slice';
-import { todosSlice } from './todos.slice';
-
-export { todosSlice, filterCategoriesSlice, snackbarSlice, contextMenuSlice };
+export * from './context-menu.slice';
+export * from './filterCategories.slice';
+export * from './todos.slice';
