@@ -1,4 +1,4 @@
-import { ITodo } from '@/interfaces/todo.interface';
+import { ITodo } from '@/types';
 
 export const mockTodo: ITodo = {
   id: 1,

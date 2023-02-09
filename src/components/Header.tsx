@@ -1,14 +1,12 @@
-import { FC, HTMLAttributes } from 'react';
-import { Navbar } from '@/components';
+import { HTMLAttributes } from 'react';
+import { Menu } from '@/components';
 
-interface Props extends HTMLAttributes<unknown> {}
+type Props = HTMLAttributes<unknown>;
 
-const Header: FC<Props> = ({ ...rest }) => {
+export const Header = ({ ...rest }: Props) => {
   return (
     <header className='px-2 bg-[#35A7FF] mb-5' {...rest}>
-      <Navbar />
+      <Menu />
     </header>
   );
 };
-
-export { Header };

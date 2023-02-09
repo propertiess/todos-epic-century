@@ -1,20 +1,17 @@
 import { useMemo } from 'react';
-import { useAppSelector } from '@/store/hooks/useAppSelector';
+import { IFilter, ITodo } from '@/types';
 
-export const useFilteredTodos = () => {
-  const initialTodos = useAppSelector(state => state.todos);
-  const { type } = useAppSelector(state => state.filterCategories);
-
+export const useFilteredTodos = (todos: ITodo[], filterBy: IFilter) => {
   const filteredTodos = useMemo(() => {
-    switch (type) {
+    switch (filterBy) {
       case 'checked':
-        return initialTodos.filter(todo => todo.checked);
+        return todos.filter(todo => todo.checked);
       case 'unchecked':
-        return initialTodos.filter(todo => !todo.checked);
+        return todos.filter(todo => !todo.checked);
       default:
-        return initialTodos;
+        return todos;
     }
-  }, [initialTodos, type]);
+  }, [todos, filterBy]);
 
   return {
     filteredTodos

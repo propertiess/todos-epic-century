@@ -10,15 +10,14 @@ import {
   persistStore
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { filterCategoriesSlice, todosSlice } from './slices';
+import { todosSlice } from './slices';
 
 export const rootReducer = combineReducers({
-  todos: todosSlice.reducer,
-  filterCategories: filterCategoriesSlice.reducer
+  todos: todosSlice.reducer
 });
 
 const persistConfig = {
-  key: 'root',
+  key: 'todos-epic',
   storage
 };
 

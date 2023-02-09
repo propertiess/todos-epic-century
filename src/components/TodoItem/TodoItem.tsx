@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
 import { LongPressDetectEvents, useLongPress } from 'use-long-press';
 import { fadeInOutDown } from '@/animation';
-import { ITodo } from '@/interfaces/todo.interface';
+import { ITodo } from '@/types';
 
 type Props = {
   todo: ITodo;

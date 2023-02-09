@@ -1,7 +1,7 @@
-import { FC, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
-const Container: FC<PropsWithChildren> = ({ children }) => {
+type Props = PropsWithChildren;
+
+export const Container = ({ children }: Props) => {
   return <div className='px-2'>{children}</div>;
 };
-
-export { Container };

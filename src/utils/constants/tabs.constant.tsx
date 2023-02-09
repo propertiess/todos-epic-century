@@ -3,7 +3,7 @@ import {
   TabCheckedIcon,
   TabUnCheckedIcon
 } from '@/components/ui/icons';
-import { ITab } from '@/interfaces/tab.interface';
+import { ITab } from '@/types';
 
 const size = {
   width: 32,

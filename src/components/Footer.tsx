@@ -1,13 +1,11 @@
-import { FC, HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
-interface Props extends HTMLAttributes<unknown> {}
+type Props = HTMLAttributes<unknown>;
 
-const Footer: FC<Props> = ({ ...rest }) => {
+export const Footer = ({ ...rest }: Props) => {
   return (
     <footer className='mt-auto p-2 bg-white font-medium text-center' {...rest}>
       &copy; 2022
     </footer>
   );
 };
-
-export { Footer };

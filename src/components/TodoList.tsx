@@ -1,9 +1,8 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { TodoItem } from '@/components/TodoItem/TodoItem';
-import { ITodo } from '@/interfaces/todo.interface';
+import { TodoItem, TodoItemContextMenu } from '@/components';
 import { useActions } from '@/store/hooks/useActions';
-import { TodoItemContextMenu } from './TodoItemContextMenu';
+import { ITodo } from '@/types';
 
 type Props = {
   todos: ITodo[];

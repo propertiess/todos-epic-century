@@ -1,8 +1,12 @@
 import { useMemo } from 'react';
+import { IFilter, ITodo } from '@/types';
 import { useFilteredTodos } from './useFilteredTodos';
 
-export const useFilteredAndSortedTodos = () => {
-  const { filteredTodos } = useFilteredTodos();
+export const useFilteredAndSortedTodos = (
+  todos: ITodo[],
+  filterBy: IFilter
+) => {
+  const { filteredTodos } = useFilteredTodos(todos, filterBy);
 
   const filteredSortedTodos = useMemo(() => {
     return [...filteredTodos].sort((a, b) => {
