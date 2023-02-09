@@ -14,7 +14,7 @@ const Main: FC = () => {
   };
 
   return (
-    <main className={styles.main} onClick={closeContextMenu}>
+    <main onClick={closeContextMenu}>
       <Container>
         <TodoForm />
         <TodoScreen />

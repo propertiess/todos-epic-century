@@ -1,9 +1,0 @@
-.content {
-  @apply fixed right-3 text-white bottom-20 bg-[#FF5964] flex justify-between max-w-xs gap-5 shadow-xl px-2 py-1 rounded items-center font-medium;
-  p {
-    @apply break-all;
-  }
-  svg {
-    @apply cursor-pointer w-[32px] h-[32px];
-  }
-}

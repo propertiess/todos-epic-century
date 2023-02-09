@@ -1,16 +1,16 @@
-import { Container } from './Container/Container';
+import { Container } from './Container';
+import { ContextMenu } from './ContextMenu';
 import { FilterTabs } from './FilterTabs/FilterTabs';
-import { Footer } from './Footer/Footer';
-import { Header } from './Header/Header';
-import { Main } from './Main/Main';
-import { Snackbar } from './Snackbar/Snackbar';
-import { Tab } from './Tab/Tab';
+import { Footer } from './Footer';
+import { Header } from './Header';
+import { Main } from './Main';
+import { Navbar } from './Navbar';
+import { Snackbar } from './Snackbar';
+import { Tab } from './Tab';
 import { TodoForm } from './TodoForm/TodoForm';
 import { TodoItem } from './TodoItem/TodoItem';
-import { TodoList } from './TodoList/TodoList';
-import { TodoScreen } from './TodoScreen/TodoScreen';
-import { ContextMenu } from './contextMenu/ContextMenu';
-import { Navbar } from './navbar/Navbar';
+import { TodoList } from './TodoList';
+import { TodoScreen } from './TodoScreen';
 
 export {
   Header,

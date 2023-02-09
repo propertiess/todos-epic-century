@@ -4,17 +4,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-body {
-  margin: 0;
+html,
+body,
+* {
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 #root {
-  @apply flex flex-col h-screen bg-[#e5e5e5ce];
+  @apply min-h-screen min-w-fit flex flex-col bg-[#e5e5e5ce];
+}
+
+main {
+  @apply flex-grow;
 }
 
 code {

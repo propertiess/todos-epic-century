@@ -8,11 +8,7 @@ interface Props extends HTMLAttributes<unknown> {}
 const TodoScreen: FC<Props> = ({ ...rest }) => {
   const { filteredSortedTodos } = useFilteredAndSortedTodos();
 
-  return (
-    <div className={styles.screen} {...rest}>
-      <TodoList todos={filteredSortedTodos} />
-    </div>
-  );
+  return <TodoList todos={filteredSortedTodos} />;
 };
 
 export { TodoScreen };
