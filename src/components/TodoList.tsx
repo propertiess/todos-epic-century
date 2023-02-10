@@ -1,6 +1,6 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { TodoItem, TodoItemContextMenu } from '@/components';
+import { ChangeTodoItem, TodoItem, TodoItemContextMenu } from '@/components';
 import { useActions } from '@/store/hooks/useActions';
 import { ITodo } from '@/types';
 
@@ -52,21 +52,21 @@ export const TodoList = ({ todos }: Props) => {
     closeContextMenu();
   };
 
-  const openChangeItem = useCallback((id: number) => {
+  const openChangeItem = (id: number) => {
     setChangeItem(id);
     closeContextMenu();
-  }, []);
+  };
 
-  const onCloseChangeItem = useCallback(() => {
+  const onCloseChangeItem = () => {
     setChangeItem(null);
     closeContextMenu();
-  }, []);
+  };
 
-  const onChangeItem = useCallback((id: number, value: string) => {
+  const onChangeItem = (id: number, value: string) => {
     changeTodo({ id, value });
     console.log(id, value);
     setChangeItem(null);
-  }, []);
+  };
 
   useEffect(() => {
     const closeContextMenuOnClickBody = (e: MouseEvent) => {
@@ -96,14 +96,20 @@ export const TodoList = ({ todos }: Props) => {
         <AnimatePresence initial={false} mode='popLayout'>
           {todos.map(todo => (
             <Fragment key={todo.id}>
-              <TodoItem
-                todo={todo}
-                onContextMenu={onContextMenu}
-                isChanged={changeItem === todo.id}
-                onChange={onChangeItem}
-                onCloseChange={onCloseChangeItem}
-                onChecked={onChecked}
-              />
+              {changeItem !== todo.id ? (
+                <TodoItem
+                  todo={todo}
+                  onContextMenu={onContextMenu}
+                  onChecked={onChecked}
+                />
+              ) : (
+                <ChangeTodoItem
+                  id={todo.id}
+                  title={todo.title}
+                  onChange={onChangeItem}
+                  onCloseChange={onCloseChangeItem}
+                />
+              )}
             </Fragment>
           ))}
         </AnimatePresence>

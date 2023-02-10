@@ -1,5 +1,6 @@
 export * from './TodoForm/TodoForm';
 export * from './TodoItem/TodoItem';
+export * from './TodoItem/ChangeTodoItem';
 export * from './Footer';
 export * from './Header';
 export * from './Container';
