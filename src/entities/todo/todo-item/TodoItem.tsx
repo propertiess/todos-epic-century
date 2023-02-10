@@ -1,7 +1,8 @@
-import { MouseEvent, memo } from 'react';
+import { memo, MouseEvent } from 'react';
 import { clsx } from 'clsx';
 import { motion } from 'framer-motion';
 import { LongPressDetectEvents, useLongPress } from 'use-long-press';
+
 import { fadeInOutDown } from '@/animation';
 import { ITodo } from '@/shared/types';
 
@@ -30,7 +31,7 @@ export const TodoItem = memo(function TodoItem({
 
   return (
     <motion.li
-      className='flex justify-center items-center gap-5 p-3 rounded hover:bg-[#333] hover:bg-opacity-20'
+      className='flex items-center justify-center gap-5 rounded p-3 hover:bg-[#333] hover:bg-opacity-20'
       onClick={() => onChecked(todo.id)}
       onContextMenu={openContextMenu}
       layout

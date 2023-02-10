@@ -1,4 +1,5 @@
 import { HTMLAttributes } from 'react';
+
 import { Layout } from '@/layout';
 
 type Props = HTMLAttributes<unknown>;

@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+
 import { Button, Input } from '@/shared/ui';
 
 type Props = {
@@ -47,7 +48,7 @@ export const ChangeTodoItem = ({
   };
 
   return (
-    <motion.div className='w-full h-full p-3' layout>
+    <motion.div className='h-full w-full p-3' layout>
       <form onSubmit={onSubmit}>
         <Input
           value={changeTodo}

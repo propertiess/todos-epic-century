@@ -1,8 +1,8 @@
 import {
-  XMarkIcon as RemoveIcon,
-  ClipboardDocumentListIcon as TabAllIcon,
   ClipboardDocumentCheckIcon as TabCheckedIcon,
-  RocketLaunchIcon as TabUnCheckedIcon
+  ClipboardDocumentListIcon as TabAllIcon,
+  RocketLaunchIcon as TabUnCheckedIcon,
+  XMarkIcon as RemoveIcon
 } from '@heroicons/react/24/solid';
 
-export { RemoveIcon, TabCheckedIcon, TabAllIcon, TabUnCheckedIcon };
+export { RemoveIcon, TabAllIcon, TabCheckedIcon, TabUnCheckedIcon };

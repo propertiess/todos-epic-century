@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+
 import { Portal } from '@/shared/components';
 
 type Props = {
@@ -14,7 +15,7 @@ export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
     { id, top, left, onRemove, onChange }: Props,
     ref
   ) {
-    if (!Boolean(id)) {
+    if (!id) {
       return null;
     }
 
@@ -29,7 +30,7 @@ export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
     return (
       <Portal>
         <div
-          className='bg-white absolute p-3 shadow w-28'
+          className='absolute w-28 bg-white p-3 shadow'
           style={{
             top,
             left
@@ -37,13 +38,13 @@ export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
           ref={ref}
         >
           <button
-            className='font-medium select-none'
+            className='select-none font-medium'
             onClick={closeContextAndChangeTodo}
           >
             Change
           </button>
           <button
-            className='text-red-500 font-medium select-none'
+            className='select-none font-medium text-red-500'
             onClick={closeContextAndRemoveTodo}
           >
             Remove

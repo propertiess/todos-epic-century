@@ -1,5 +1,6 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+
 import { useActions } from '@/app/store/hooks/useActions';
 import { useAppSelector } from '@/app/store/hooks/useAppSelector';
 import { ChangeTodoItem, TodoItem, TodoItemContextMenu } from '@/entities/todo';
@@ -76,7 +77,7 @@ export const TodosContainer = () => {
     const closeContextMenuOnClickBody = (e: MouseEvent) => {
       if (
         contextMenuRef.current?.contains(e.target as HTMLElement) ||
-        !Boolean(contextMenuProps.id)
+        !contextMenuProps.id
       ) {
         return;
       }

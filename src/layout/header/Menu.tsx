@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
+
 import { FilterTabs } from './FilterTabs';
+
 import Logo from '/logo.png';
 
 export const Menu = () => {
   return (
-    <nav className='flex justify-center items-center'>
+    <nav className='flex items-center justify-center'>
       <Link to='/'>
-        <img className='block py-1 h-8' src={Logo} alt='logo' />
+        <img className='block h-8 py-1' src={Logo} alt='logo' />
       </Link>
       <FilterTabs />
     </nav>

@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+
 import { IFilter } from '@/shared/types';
 
 export const useParamFilterBy = () => {

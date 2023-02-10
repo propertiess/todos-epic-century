@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
+
 import { fadeInOutRight } from '@/animation';
 import { useTimerForAutoHide } from '@/shared/hooks/useTimerForAutoHide';
 import { RemoveIcon } from '@/shared/ui';
+
 import { Portal } from './Portal';
 
 interface Props {
@@ -18,11 +20,11 @@ export const Notification = ({ title, isShow, close }: Props) => {
       <AnimatePresence initial={false}>
         {isShow && (
           <motion.div
-            className='fixed right-3 text-white bottom-20 bg-[#FF5964] flex justify-between max-w-xs gap-5 shadow-xl px-2 py-1 rounded items-center font-medium'
+            className='fixed right-3 bottom-20 flex max-w-xs items-center justify-between gap-5 rounded bg-[#FF5964] px-2 py-1 font-medium text-white shadow-xl'
             {...fadeInOutRight}
           >
             <p className='break-all'>{title}</p>
-            <RemoveIcon className='cursor-pointer w-8 h-8' onClick={close} />
+            <RemoveIcon className='h-8 w-8 cursor-pointer' onClick={close} />
           </motion.div>
         )}
       </AnimatePresence>

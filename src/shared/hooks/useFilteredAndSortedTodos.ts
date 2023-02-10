@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
+
 import { IFilter, ITodo } from '@/shared/types';
+
 import { useFilteredTodos } from './useFilteredTodos';
 
 export const useFilteredAndSortedTodos = (

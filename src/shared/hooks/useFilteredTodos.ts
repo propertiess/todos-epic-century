@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+
 import { IFilter, ITodo } from '@/shared/types';
 
 export const useFilteredTodos = (todos: ITodo[], filterBy: IFilter) => {

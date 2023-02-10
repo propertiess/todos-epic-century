@@ -3,13 +3,14 @@ import {
   FLUSH,
   PAUSE,
   PERSIST,
+  persistReducer,
+  persistStore,
   PURGE,
   REGISTER,
-  REHYDRATE,
-  persistReducer,
-  persistStore
+  REHYDRATE
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import { todosSlice } from './slices';
 
 export const rootReducer = combineReducers({

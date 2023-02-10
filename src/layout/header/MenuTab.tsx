@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react';
 import { clsx } from 'clsx';
+
 import { useParamFilterBy } from '@/shared/hooks';
 
 type Props = HTMLAttributes<unknown> & {
@@ -13,7 +14,7 @@ export const MenuTab = ({ Component, type, ...rest }: Props) => {
   return (
     <li
       className={clsx(
-        'flex justify-center items-center cursor-pointer list-none py-1 w-[50px] transition',
+        'flex w-[50px] cursor-pointer list-none items-center justify-center py-1 transition',
         filterBy === type && 'bg-[#333] bg-opacity-10'
       )}
       {...rest}

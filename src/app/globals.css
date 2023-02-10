@@ -14,7 +14,7 @@ body,
 }
 
 #root {
-  @apply min-h-screen min-w-fit flex flex-col bg-[#e5e5e5ce];
+  @apply flex min-h-screen min-w-fit flex-col bg-[#e5e5e5ce];
 }
 
 main {

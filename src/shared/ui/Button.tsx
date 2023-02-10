@@ -7,7 +7,7 @@ export const Button = ({ children, className, ...rest }: Props) => {
   return (
     <button
       className={clsx(
-        'text-white bg-main border-2 border-transparent outline-none focus:border-white/50 active:border-white/50 active:bg-[#333] active:bg-opacity-20 transition rounded',
+        'rounded border-2 border-transparent bg-main text-white outline-none transition focus:border-white/50 active:border-white/50 active:bg-[#333] active:bg-opacity-20',
         className
       )}
       {...rest}
