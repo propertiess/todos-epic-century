@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MyButton } from '@/components/ui/MyButton';
+import { Button, Input } from '@/components';
 import { useActions } from '@/store/hooks/useActions';
 import { Notification } from '../Notification';
 
@@ -25,20 +25,19 @@ export const TodoForm = () => {
         onSubmit={e => e.preventDefault()}
         data-testid='todo-form'
       >
-        <input
-          className='shadow px-2 py-1 rounded w-full block focus:outline-none'
+        <Input
           data-testid='input'
           value={value}
           onChange={e => setValue(e.target.value)}
           type='text'
         />
-        <MyButton
-          className='shadow px-2 py-1 rounded ml-auto'
+        <Button
+          className='shadow px-2 py-1 ml-auto'
           data-testid='btn'
           onClick={addTodo}
         >
           Add
-        </MyButton>
+        </Button>
       </form>
       <Notification
         title='Введите задачу!'

@@ -6,7 +6,7 @@ export const FilterTabs = () => {
   const { changeFilterBy } = useParamFilterBy();
 
   return (
-    <ul className='bg-[#35A7FF] ml-auto text-white flex gap-1'>
+    <ul className='bg-main ml-auto text-white flex gap-1'>
       {tabs.map(tab => (
         <MenuTab
           key={tab.type}

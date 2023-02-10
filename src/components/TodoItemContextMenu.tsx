@@ -40,13 +40,13 @@ export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
             className='font-medium select-none'
             onClick={closeContextAndChangeTodo}
           >
-            Изменить
+            Change
           </button>
           <button
             className='text-red-500 font-medium select-none'
             onClick={closeContextAndRemoveTodo}
           >
-            Удалить
+            Remove
           </button>
         </div>
       </Portal>
