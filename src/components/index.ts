@@ -1,5 +1,6 @@
 export * from './TodoForm/TodoForm';
 export * from './TodoItem/TodoItem';
+export * from './TodoItem/ChangeTodoItem';
 export * from './Footer';
 export * from './Header';
 export * from './Container';
@@ -10,3 +11,5 @@ export * from './Notification';
 export * from './MenuTab';
 export * from './TodoList';
 export * from './TodoContainer';
+export * from './ui/Button';
+export * from './ui/Input';

@@ -6,16 +6,24 @@ type Props = {
   top?: number | string;
   left?: number | string;
   onRemove?: (id: number) => void;
+  onChange?: (id: number) => void;
 };
 
 export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
-  function TodoItemContextMenu({ id, top, left, onRemove }: Props, ref) {
+  function TodoItemContextMenu(
+    { id, top, left, onRemove, onChange }: Props,
+    ref
+  ) {
     if (!Boolean(id)) {
       return null;
     }
 
     const closeContextAndRemoveTodo = () => {
       onRemove?.(id!);
+    };
+
+    const closeContextAndChangeTodo = () => {
+      onChange?.(id!);
     };
 
     return (
@@ -29,10 +37,16 @@ export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
           ref={ref}
         >
           <button
+            className='font-medium select-none'
+            onClick={closeContextAndChangeTodo}
+          >
+            Change
+          </button>
+          <button
             className='text-red-500 font-medium select-none'
             onClick={closeContextAndRemoveTodo}
           >
-            Удалить
+            Remove
           </button>
         </div>
       </Portal>

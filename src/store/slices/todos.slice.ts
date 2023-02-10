@@ -29,6 +29,16 @@ export const todosSlice = createSlice({
         }
         if (!todo.checked) todo.timeDone = null;
       });
+    },
+
+    changeTodo: (
+      state,
+      action: PayloadAction<{ id: number; value: string }>
+    ) => {
+      const { id, value } = action.payload;
+      const index = state.findIndex(todo => todo.id === id);
+
+      state[index].title = value;
     }
   }
 });
