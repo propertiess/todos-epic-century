@@ -64,7 +64,6 @@ export const TodoList = ({ todos }: Props) => {
 
   const onChangeItem = (id: number, value: string) => {
     changeTodo({ id, value });
-    console.log(id, value);
     setChangeItem(null);
   };
 

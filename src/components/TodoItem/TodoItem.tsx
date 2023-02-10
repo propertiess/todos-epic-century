@@ -16,8 +16,6 @@ export const TodoItem = memo(function TodoItem({
   onContextMenu,
   onChecked
 }: Props) {
-  console.log('rerender');
-
   const onLongPress = useLongPress(
     e => onContextMenu(e as MouseEvent<HTMLLIElement>, todo.id),
     {
