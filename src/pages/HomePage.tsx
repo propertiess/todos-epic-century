@@ -1,13 +1,10 @@
-import { Container, TodoContainer, TodoForm } from '@/components';
 import { Layout } from '@/layout';
+import { TodoWidget } from '@/widgets';
 
 export const HomePage = () => {
   return (
     <Layout>
-      <Container>
-        <TodoForm />
-        <TodoContainer />
-      </Container>
+      <TodoWidget />
     </Layout>
   );
 };
