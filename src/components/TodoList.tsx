@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const TodoList = ({ todos }: Props) => {
-  const { removeTodo, toggleChecked } = useActions();
+  const { removeTodo, toggleChecked, changeTodo } = useActions();
   const contextMenuRef = useRef<HTMLDivElement>(null);
 
   const [contextMenuProps, setContextMenuProps] = useState<{
@@ -17,6 +17,8 @@ export const TodoList = ({ todos }: Props) => {
     left?: number | string;
     id: number | null;
   }>({ id: null });
+
+  const [changeItem, setChangeItem] = useState<number | null>(null);
 
   const onContextMenu = useCallback(
     (e: React.MouseEvent<HTMLLIElement>, id: number) => {
@@ -34,17 +36,40 @@ export const TodoList = ({ todos }: Props) => {
     []
   );
 
+  const closeContextMenu = () => {
+    setContextMenuProps(prev => ({
+      ...prev,
+      id: null
+    }));
+  };
+
   const onChecked = useCallback((id: number) => {
     toggleChecked(id);
   }, []);
 
   const onRemove = (id: number) => {
     removeTodo(id);
-    setContextMenuProps({ ...contextMenuProps, id: null });
+    closeContextMenu();
   };
 
+  const openChangeItem = useCallback((id: number) => {
+    setChangeItem(id);
+    closeContextMenu();
+  }, []);
+
+  const onCloseChangeItem = useCallback(() => {
+    setChangeItem(null);
+    closeContextMenu();
+  }, []);
+
+  const onChangeItem = useCallback((id: number, value: string) => {
+    changeTodo({ id, value });
+    console.log(id, value);
+    setChangeItem(null);
+  }, []);
+
   useEffect(() => {
-    const closeContextMenu = (e: MouseEvent) => {
+    const closeContextMenuOnClickBody = (e: MouseEvent) => {
       if (
         contextMenuRef.current?.contains(e.target as HTMLElement) ||
         !Boolean(contextMenuProps.id)
@@ -52,32 +77,31 @@ export const TodoList = ({ todos }: Props) => {
         return;
       }
 
-      setContextMenuProps(prev => ({
-        ...prev,
-        id: null
-      }));
+      closeContextMenu();
     };
 
-    document.body.addEventListener('mousedown', closeContextMenu);
+    document.body.addEventListener('mousedown', closeContextMenuOnClickBody);
 
     return () => {
-      document.body.removeEventListener('mousedown', closeContextMenu);
+      document.body.removeEventListener(
+        'mousedown',
+        closeContextMenuOnClickBody
+      );
     };
   }, [contextMenuProps.id]);
 
   return (
     <>
-      <motion.ul
-        className='mt-5'
-        layout
-        onClick={() => setContextMenuProps({ ...contextMenuProps, id: null })}
-      >
+      <motion.ul className='mt-5' layout onClick={closeContextMenu}>
         <AnimatePresence initial={false} mode='popLayout'>
           {todos.map(todo => (
             <Fragment key={todo.id}>
               <TodoItem
                 todo={todo}
                 onContextMenu={onContextMenu}
+                isChanged={changeItem === todo.id}
+                onChange={onChangeItem}
+                onCloseChange={onCloseChangeItem}
                 onChecked={onChecked}
               />
             </Fragment>
@@ -87,6 +111,7 @@ export const TodoList = ({ todos }: Props) => {
       <TodoItemContextMenu
         ref={contextMenuRef}
         onRemove={onRemove}
+        onChange={openChangeItem}
         {...contextMenuProps}
       />
     </>
