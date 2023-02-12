@@ -15,17 +15,12 @@ type Submitter = Event & {
 };
 
 const submitNames = {
-  change: 'change-todo-item',
-  close: 'close-change-todo-item'
+  edit: 'edit-todo-item',
+  close: 'close-edit-todo-item'
 };
 
-export const ChangeTodoItem = ({
-  id,
-  title,
-  onChange,
-  onCloseChange
-}: Props) => {
-  const [changeTodo, setChangeTodo] = useState(title);
+export const EditTodoItem = ({ id, title, onChange, onCloseChange }: Props) => {
+  const [editTodo, setEditTodo] = useState(title);
   const inputChangeRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -36,12 +31,12 @@ export const ChangeTodoItem = ({
     e.preventDefault();
     const name = (e.nativeEvent as Submitter).submitter.name;
 
-    if (name === submitNames.change) {
-      if (!changeTodo.trim()) {
+    if (name === submitNames.edit) {
+      if (!editTodo.trim()) {
         onCloseChange();
         return;
       }
-      onChange(id, changeTodo);
+      onChange(id, editTodo);
     } else {
       onCloseChange();
     }
@@ -51,13 +46,13 @@ export const ChangeTodoItem = ({
     <motion.div className='h-full w-full p-3' layout>
       <form onSubmit={onSubmit}>
         <Input
-          value={changeTodo}
-          onChange={e => setChangeTodo(e.target.value)}
+          value={editTodo}
+          onChange={e => setEditTodo(e.target.value)}
           ref={inputChangeRef}
         />
         <div className='mt-5 flex gap-3'>
-          <Button className='px-3' name={submitNames.change} type='submit'>
-            Change
+          <Button className='px-3' name={submitNames.edit} type='submit'>
+            Edit
           </Button>
           <Button className='px-3' name={submitNames.close} type='submit'>
             Cancel

@@ -1,18 +1,19 @@
 import { forwardRef } from 'react';
 
 import { Portal } from '@/shared/components';
+import { Button } from '@/shared/ui';
 
 type Props = {
   id: number | null;
   top?: number | string;
   left?: number | string;
-  onRemove?: (id: number) => void;
-  onChange?: (id: number) => void;
+  removeItem?: (id: number) => void;
+  openEditItem?: (id: number) => void;
 };
 
 export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
   function TodoItemContextMenu(
-    { id, top, left, onRemove, onChange }: Props,
+    { id, top, left, removeItem, openEditItem }: Props,
     ref
   ) {
     if (!id) {
@@ -20,35 +21,35 @@ export const TodoItemContextMenu = forwardRef<HTMLDivElement, Props>(
     }
 
     const closeContextAndRemoveTodo = () => {
-      onRemove?.(id!);
+      removeItem?.(id!);
     };
 
-    const closeContextAndChangeTodo = () => {
-      onChange?.(id!);
+    const closeContextAndEditTodo = () => {
+      openEditItem?.(id!);
     };
 
     return (
       <Portal>
         <div
-          className='absolute w-28 bg-white p-3 shadow'
+          className='absolute flex w-28 flex-col gap-3 bg-white p-3 shadow'
           style={{
             top,
             left
           }}
           ref={ref}
         >
-          <button
-            className='select-none font-medium'
-            onClick={closeContextAndChangeTodo}
+          <Button
+            className='w-full select-none font-medium'
+            onClick={closeContextAndEditTodo}
           >
-            Change
-          </button>
-          <button
-            className='select-none font-medium text-red-500'
+            Edit
+          </Button>
+          <Button
+            className='w-full select-none font-medium'
             onClick={closeContextAndRemoveTodo}
           >
             Remove
-          </button>
+          </Button>
         </div>
       </Portal>
     );

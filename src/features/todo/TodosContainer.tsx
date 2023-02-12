@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { useActions } from '@/app/store/hooks/useActions';
 import { useAppSelector } from '@/app/store/hooks/useAppSelector';
-import { ChangeTodoItem, TodoItem, TodoItemContextMenu } from '@/entities/todo';
+import { EditTodoItem, TodoItem, TodoItemContextMenu } from '@/entities/todo';
 import { useFilteredAndSortedTodos, useParamFilterBy } from '@/shared/hooks';
 
 export const TodosContainer = () => {
@@ -20,11 +20,7 @@ export const TodosContainer = () => {
     id: number | null;
   }>({ id: null });
 
-  const [changeItem, setChangeItem] = useState<number | null>(null);
-
-  useEffect(() => {
-    filterBy !== 'all' && changeFilterBy(filterBy);
-  }, []);
+  const [editItem, setEditItem] = useState<number | null>(null);
 
   const onContextMenu = useCallback(
     (e: React.MouseEvent<HTMLLIElement>, id: number) => {
@@ -53,25 +49,29 @@ export const TodosContainer = () => {
     toggleChecked(id);
   }, []);
 
-  const onRemove = (id: number) => {
+  const removeItem = (id: number) => {
     removeTodo(id);
     closeContextMenu();
   };
 
-  const openChangeItem = (id: number) => {
-    setChangeItem(id);
+  const openEditItem = (id: number) => {
+    setEditItem(id);
     closeContextMenu();
   };
 
-  const onCloseChangeItem = () => {
-    setChangeItem(null);
+  const closeEditItem = () => {
+    setEditItem(null);
     closeContextMenu();
   };
 
-  const onChangeItem = (id: number, value: string) => {
+  const onEditItem = (id: number, value: string) => {
     changeTodo({ id, value });
-    setChangeItem(null);
+    setEditItem(null);
   };
+
+  useEffect(() => {
+    filterBy !== 'all' && changeFilterBy(filterBy);
+  }, []);
 
   useEffect(() => {
     const closeContextMenuOnClickBody = (e: MouseEvent) => {
@@ -101,18 +101,18 @@ export const TodosContainer = () => {
         <AnimatePresence initial={false} mode='popLayout'>
           {filteredSortedTodos.map(todo => (
             <Fragment key={todo.id}>
-              {changeItem !== todo.id ? (
+              {editItem !== todo.id ? (
                 <TodoItem
                   todo={todo}
                   onContextMenu={onContextMenu}
                   onChecked={onChecked}
                 />
               ) : (
-                <ChangeTodoItem
+                <EditTodoItem
                   id={todo.id}
                   title={todo.title}
-                  onChange={onChangeItem}
-                  onCloseChange={onCloseChangeItem}
+                  onChange={onEditItem}
+                  onCloseChange={closeEditItem}
                 />
               )}
             </Fragment>
@@ -121,8 +121,8 @@ export const TodosContainer = () => {
       </motion.ul>
       <TodoItemContextMenu
         ref={contextMenuRef}
-        onRemove={onRemove}
-        onChange={openChangeItem}
+        removeItem={removeItem}
+        openEditItem={openEditItem}
         {...contextMenuProps}
       />
     </>
